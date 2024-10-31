@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.HBox?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.acme.missao4.PokeController" spacing="10" alignment="TOP_CENTER">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <TextField fx:id="pokemonInput" promptText="Enter Pokémon name" maxWidth="200"/>
+    <Button text="Load Pokémon" onAction="#onLoadPokemon" />
+
+    <Label text="Pokémon Name:"/>
+    <Label fx:id="pokemonNameLabel" text="-" />
+
+    <Label text="Abilities:"/>
+    <Label fx:id="abilitiesLabel" text="-" />
+
+    <ImageView fx:id="pokemonImageView" fitWidth="100" fitHeight="100" preserveRatio="true" />
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <ComboBox fx:id="typeComboBox" promptText="Select Type" onAction="#onTypeSelected" />
+    <ListView fx:id="pokemonListView" />
+</VBox>
