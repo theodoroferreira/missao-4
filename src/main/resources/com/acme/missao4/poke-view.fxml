@@ -22,7 +22,9 @@
         <TextField fx:id="pokemonInput" promptText="Enter Pokémon name" maxWidth="200"/>
         <Button text="Load Pokémon" onAction="#onLoadPokemon"/>
 
-        <VBox fx:id="screenArea" alignment="CENTER" maxWidth="240" maxHeight="180" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10;">
+        <VBox fx:id="screenArea" alignment="CENTER" maxWidth="240" maxHeight="180" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10; -fx-border-color: #000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;">
             <ImageView fx:id="pokemonImageView" fitWidth="100" fitHeight="100" preserveRatio="true"/>
 
             <!-- Pokémon Information -->

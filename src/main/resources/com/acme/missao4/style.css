@@ -63,6 +63,24 @@
     -fx-left: 13.5%;
 }
 
+.combo-box {
+    -fx-padding: 10px;
+    -fx-border-color: #000;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-font-size: 1em;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #444;
+    -fx-effect: dropshadow(two-pass-box, #222, 2, 0, -2, 3),
+    dropshadow(two-pass-box, #000, 4, 0, -4, 6);
+}
+
+.combo-box .arrow {
+    -fx-background-color: white;
+    -fx-padding: 3px;
+}
+
 .text-field {
     -fx-padding: 10px;
     -fx-focus-traversable: false; /* Equivalent to outline: none */

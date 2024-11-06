@@ -17,7 +17,7 @@ public class PokeApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 960, 540);
         scene.getStylesheets().add(Objects.requireNonNull(getClass().getResource("style.css")).toExternalForm());
         stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("icon.png"))));
-        stage.setTitle("Poké Viewer");
+        stage.setTitle("PokéFx");
         stage.setScene(scene);
         stage.show();
     }
