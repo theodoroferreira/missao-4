@@ -1,5 +1,5 @@
 .stack-pane {
-    -fx-background-image: url("background.jpg");
+    -fx-background-image: url("bg.png");
     -fx-background-size: cover;
     -fx-background-position: center;
 }
@@ -78,7 +78,7 @@
 
 .combo-box .arrow {
     -fx-background-color: white;
-    -fx-padding: 3px;
+    -fx-padding:3px;
 }
 
 .text-field {

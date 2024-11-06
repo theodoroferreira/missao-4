@@ -25,9 +25,6 @@ public class PokeController {
     private ImageView logoImageView;
 
     @FXML
-    private ImageView pokedexFrame;
-
-    @FXML
     private TextField pokemonInput;
 
     @FXML
@@ -132,10 +129,8 @@ public class PokeController {
         loadTypes();
 
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.png")));
-//        Image pokedex = new Image(Objects.requireNonNull(getClass().getResourceAsStream("pokedex.png")));
 
         logoImageView.setImage(logo);
-//        pokedexFrame.setImage(pokedex);
         pokemonListView.setCellFactory(new Callback<>() {
             @Override
             public ListCell<PokemonDto> call(ListView<PokemonDto> listView) {
