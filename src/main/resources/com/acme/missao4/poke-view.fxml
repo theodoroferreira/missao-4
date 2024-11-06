@@ -3,8 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:id="mainStackPane" fx:controller="com.acme.missao4.PokeController"
            stylesheets="@style.css">
 
@@ -47,11 +45,9 @@
 
     <!-- Filter Screen -->
     <VBox fx:id="filterScreen" alignment="CENTER" spacing="10" visible="false">
-        <padding>
-            <Insets top="10" right="320" bottom="10" left="320"/>
-        </padding>
+
         <ComboBox fx:id="typeComboBox" promptText="Select Type" onAction="#onTypeSelected"/>
-        <ListView fx:id="pokemonListView" maxHeight="314"/>
+        <ListView fx:id="pokemonListView" maxWidth="500" maxHeight="312"/>
 
         <HBox fx:id="buttons" spacing="10" alignment="TOP_CENTER">
             <Button fx:id="previousButton" text="Previous" onAction="#onPreviousPage"/>

@@ -22,46 +22,25 @@ public class PokeController {
     private StackPane mainStackPane;
 
     @FXML
-    private ImageView logoImageView;
+    private VBox homeScreen, searchScreen, filterScreen;
+
+    @FXML
+    private ImageView logoImageView, pokemonImageView;
+
+    @FXML
+    private Button nextButton, previousButton;
+
+    @FXML
+    private Label pokemonNameLabel, abilitiesLabel, heightLabel, weightLabel;
 
     @FXML
     private TextField pokemonInput;
-
-    @FXML
-    private Label pokemonNameLabel;
-
-    @FXML
-    private Label abilitiesLabel;
-
-    @FXML
-    private Label heightLabel;
-
-    @FXML
-    private Label weightLabel;
-
-    @FXML
-    private ImageView pokemonImageView;
 
     @FXML
     private ComboBox<String> typeComboBox;
 
     @FXML
     private ListView<PokemonDto> pokemonListView;
-
-    @FXML
-    private Button nextButton;
-
-    @FXML
-    private Button previousButton;
-
-    @FXML
-    private VBox homeScreen;
-
-    @FXML
-    private VBox searchScreen;
-
-    @FXML
-    private VBox filterScreen;
 
     private final PokeService service = new PokeService();
 

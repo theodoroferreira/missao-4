@@ -8,18 +8,18 @@
     -fx-padding: 10px;
     -fx-background-color: rgba(255, 255, 255, 0.8);
     -fx-background-radius: 15px;
-    -fx-border-color: #3B4CCA;
+    -fx-border-color: #000;
     -fx-border-width: 2px;
     -fx-border-radius: 15px;
 }
 
 .list-cell {
-    -fx-background-color: #FFCB05;
-    -fx-text-fill: #3B4CCA;
+    -fx-background-color: #3B4CCA;
+    -fx-text-fill: #fff;
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-padding: 10px;
-    -fx-border-color: #3B4CCA;
+    -fx-border-color: #000;
     -fx-border-width: 1px;
     -fx-border-radius: 10px;
     -fx-background-radius: 10px;
@@ -33,16 +33,16 @@
 
 .list-cell:focused {
     -fx-background-color: #FFCB05;
-    -fx-border-color: #FF5959;
+    -fx-border-color: #000;
 }
 
 .list-cell {
-    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 5, 0, 0, 3);
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 3);
 }
 
 .list-cell:hover {
-    -fx-background-color: #FFD733; /* Lighter yellow on hover */
-    -fx-text-fill: #000000; /* Change text to black on hover for contrast */
+    -fx-background-color: #FFD733;
+    -fx-text-fill: #000000;
 }
 
 .text {
@@ -54,13 +54,6 @@
     -fx-text-fill: #3a444d;
     -fx-font-weight: bold;
     -fx-font-size: 30px;
-}
-
-.form {
-    -fx-position: absolute;
-    -fx-pref-width: 65%;
-    -fx-top: 65%;
-    -fx-left: 13.5%;
 }
 
 .combo-box {
@@ -78,18 +71,18 @@
 
 .combo-box .arrow {
     -fx-background-color: white;
-    -fx-padding:3px;
+    -fx-padding: 3px;
 }
 
 .text-field {
     -fx-padding: 10px;
-    -fx-focus-traversable: false; /* Equivalent to outline: none */
+    -fx-focus-traversable: false;
     -fx-border-color: #333;
     -fx-border-width: 2;
     -fx-border-radius: 5;
     -fx-font-weight: bold;
     -fx-text-fill: #3a444d;
-    -fx-font-size: 1em; /* Adjust with exact sizing if needed */
+    -fx-font-size: 1em;
     -fx-effect: dropshadow(two-pass-box, #888, 3, 0, -3, 4),
     dropshadow(two-pass-box, #333, 5, 0, -5, 7);
 }
@@ -107,7 +100,7 @@
     -fx-border-color: #000;
     -fx-border-width: 2;
     -fx-border-radius: 5;
-    -fx-font-size: 1em; /* Adjust with exact sizing if needed */
+    -fx-font-size: 1em;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-background-color: #444;
@@ -119,4 +112,3 @@
     -fx-effect: innershadow(two-pass-box, #222, 4, 0, -4, 4);
     -fx-font-size: 0.9em;
 }
-
