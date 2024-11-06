@@ -4,44 +4,6 @@
     -fx-background-position: center;
 }
 
-.text-field {
-    -fx-background-color: #FFCB05; /* Pikachu yellow */
-    -fx-text-fill: #3B4CCA; /* Deep blue text */
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 8px;
-    -fx-border-color: #3B4CCA; /* Deep blue border */
-    -fx-border-width: 2px;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 10px;
-}
-
-/* Focused State */
-.text-field:focused {
-    -fx-background-color: #FFD733; /* Slightly lighter yellow when focused */
-    -fx-border-color: #FF5959; /* Red border when focused */
-    -fx-effect: dropshadow(one-pass-box, rgba(255, 89, 89, 0.6), 5, 0, 0, 1);
-}
-
-/* Placeholder (Prompt Text) Styling */
-.text-field .text {
-    -fx-fill: #AAAAAA; /* Gray for prompt text */
-    -fx-opacity: 0.8;
-}
-
-/* Optional Hover Effect */
-.text-field:hover {
-    -fx-background-color: #FFD733; /* Lighter yellow on hover */
-    -fx-border-color: #3B4CCA;
-}
-
-/* Error Styling (if needed) */
-.text-field.error {
-    -fx-background-color: #FF5959; /* Red background for error state */
-    -fx-border-color: #FF0000; /* Darker red border for error */
-    -fx-text-fill: #FFFFFF; /* White text on error */
-}
-
 .list-view {
     -fx-padding: 10px;
     -fx-background-color: rgba(255, 255, 255, 0.8);
@@ -83,44 +45,60 @@
     -fx-text-fill: #000000; /* Change text to black on hover for contrast */
 }
 
-.button {
-    -fx-background-color: #ffcb05; /* Pikachu-inspired yellow */
-    -fx-text-fill: #333333; /* Dark text */
-    -fx-font-family: "Verdana"; /* Bold, readable font */
-    -fx-font-size: 14px;
+.text {
+    -fx-text-fill: #3a444d;
     -fx-font-weight: bold;
-    -fx-padding: 8 15 8 15; /* Padding for compact look */
-    -fx-background-radius: 15; /* Rounded corners */
-    -fx-border-radius: 15;
-    -fx-border-color: #3b4cca; /* Pokémon-inspired blue border */
-    -fx-border-width: 3px;
 }
 
-.button:hover {
-    -fx-background-color: #ffde03; /* Lighter yellow on hover */
-    -fx-cursor: hand; /* Pointer cursor */
+.pokemon-name-label {
+    -fx-text-fill: #3a444d;
+    -fx-font-weight: bold;
+    -fx-font-size: 30px;
+}
+
+.form {
+    -fx-position: absolute;
+    -fx-pref-width: 65%;
+    -fx-top: 65%;
+    -fx-left: 13.5%;
+}
+
+.text-field {
+    -fx-padding: 10px;
+    -fx-focus-traversable: false; /* Equivalent to outline: none */
+    -fx-border-color: #333;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-font-weight: bold;
+    -fx-text-fill: #3a444d;
+    -fx-font-size: 1em; /* Adjust with exact sizing if needed */
+    -fx-effect: dropshadow(two-pass-box, #888, 3, 0, -3, 4),
+    dropshadow(two-pass-box, #333, 5, 0, -5, 7);
+}
+
+.buttons {
+    -fx-position: absolute;
+    -fx-bottom: 10%;
+    -fx-left: 50%;
+    -fx-translate-x: -57%;
+    -fx-hgap: 20px;
+}
+
+.button {
+    -fx-padding: 10px;
+    -fx-border-color: #000;
+    -fx-border-width: 2;
+    -fx-border-radius: 5;
+    -fx-font-size: 1em; /* Adjust with exact sizing if needed */
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #444;
+    -fx-effect: dropshadow(two-pass-box, #222, 2, 0, -2, 3),
+    dropshadow(two-pass-box, #000, 4, 0, -4, 6);
 }
 
 .button:pressed {
-    -fx-background-color: #ffcb05; /* Original color on press */
-    -fx-border-color: #333333; /* Darker border on press */
-}
-
-/* Style for Text Fields - Pokémon inspired */
-.text-field {
-    -fx-background-color: #ffffff; /* White background */
-    -fx-border-color: #3b4cca; /* Blue border */
-    -fx-border-width: 2px;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
-    -fx-font-family: "Verdana";
-    -fx-font-size: 13px;
-    -fx-text-fill: #333333; /* Dark text color */
-    -fx-padding: 5 10 5 10; /* Padding for text */
-}
-
-.text-field:focused {
-    -fx-border-color: #ffcb05; /* Yellow border when focused */
-    -fx-background-color: #f0f8ff; /* Light blue background on focus */
+    -fx-effect: innershadow(two-pass-box, #222, 4, 0, -4, 4);
+    -fx-font-size: 0.9em;
 }
 

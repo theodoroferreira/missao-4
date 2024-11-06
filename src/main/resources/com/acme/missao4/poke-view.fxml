@@ -4,6 +4,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+
 <StackPane xmlns:fx="http://javafx.com/fxml" fx:id="mainStackPane" fx:controller="com.acme.missao4.PokeController"
            stylesheets="@style.css">
 
@@ -21,13 +22,23 @@
         <TextField fx:id="pokemonInput" promptText="Enter Pokémon name" maxWidth="200"/>
         <Button text="Load Pokémon" onAction="#onLoadPokemon"/>
 
-        <Label text="Pokémon Name:"/>
-        <Label fx:id="pokemonNameLabel" text="-"/>
+        <VBox fx:id="screenArea" alignment="CENTER" maxWidth="240" maxHeight="180" style="-fx-background-color: rgba(255, 255, 255, 0.8); -fx-background-radius: 10;">
+            <ImageView fx:id="pokemonImageView" fitWidth="100" fitHeight="100" preserveRatio="true"/>
 
-        <Label text="Abilities:"/>
-        <Label fx:id="abilitiesLabel" text="-"/>
+            <!-- Pokémon Information -->
+            <HBox alignment="CENTER">
+                <Label fx:id="pokemonNameLabel" text="-"/>
+            </HBox>
 
-        <ImageView fx:id="pokemonImageView" fitWidth="100" fitHeight="100" preserveRatio="true"/>
+            <Label text="Abilities:"/>
+            <Label fx:id="abilitiesLabel" text="-"/>
+
+            <Label text="Height:"/>
+            <Label fx:id="heightLabel" text="-"/>
+
+            <Label text="Weight:"/>
+            <Label fx:id="weightLabel" text="-"/>
+        </VBox>
 
         <Button text="Back to Home" onAction="#showHomeScreen"/>
     </VBox>
@@ -40,7 +51,7 @@
         <ComboBox fx:id="typeComboBox" promptText="Select Type" onAction="#onTypeSelected"/>
         <ListView fx:id="pokemonListView" maxHeight="314"/>
 
-        <HBox spacing="10" alignment="TOP_CENTER">
+        <HBox fx:id="buttons" spacing="10" alignment="TOP_CENTER">
             <Button fx:id="previousButton" text="Previous" onAction="#onPreviousPage"/>
             <Button fx:id="nextButton" text="Next" onAction="#onNextPage"/>
         </HBox>

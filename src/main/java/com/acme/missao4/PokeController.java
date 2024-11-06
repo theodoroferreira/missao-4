@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Callback;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -24,6 +25,9 @@ public class PokeController {
     private ImageView logoImageView;
 
     @FXML
+    private ImageView pokedexFrame;
+
+    @FXML
     private TextField pokemonInput;
 
     @FXML
@@ -31,6 +35,12 @@ public class PokeController {
 
     @FXML
     private Label abilitiesLabel;
+
+    @FXML
+    private Label heightLabel;
+
+    @FXML
+    private Label weightLabel;
 
     @FXML
     private ImageView pokemonImageView;
@@ -122,7 +132,10 @@ public class PokeController {
         loadTypes();
 
         Image logo = new Image(Objects.requireNonNull(getClass().getResourceAsStream("logo.png")));
+//        Image pokedex = new Image(Objects.requireNonNull(getClass().getResourceAsStream("pokedex.png")));
+
         logoImageView.setImage(logo);
+//        pokedexFrame.setImage(pokedex);
         pokemonListView.setCellFactory(new Callback<>() {
             @Override
             public ListCell<PokemonDto> call(ListView<PokemonDto> listView) {
@@ -136,7 +149,7 @@ public class PokeController {
                             setText(null);
                             setGraphic(null);
                         } else {
-                            setText(pokemon.name());
+                            setText(pokemon.name() + "\n" + pokemon.abilities());
                             imageView.setImage(new Image(pokemon.imageUrl()));
                             imageView.setFitWidth(50);
                             imageView.setFitHeight(50);
@@ -167,9 +180,8 @@ public class PokeController {
         }
     }
 
-    private String getPokemonImage(String name) throws IOException, InterruptedException {
+    private String getPokemonImage(JsonObject data) throws IOException, InterruptedException {
 
-        JsonObject data = service.fetchPokemonData(name);
         return data.getAsJsonObject("sprites")
                 .getAsJsonObject("other")
                 .getAsJsonObject("official-artwork")
@@ -181,31 +193,31 @@ public class PokeController {
 
         try {
             JsonObject data = service.fetchPokemonData(name);
-            pokemonNameLabel.setText(data.get("name").getAsString());
+            pokemonNameLabel.setText(StringUtils.capitalize(data.get("name").getAsString()));
 
             StringBuilder abilities = new StringBuilder();
             data.getAsJsonArray("abilities").forEach(ability -> {
                 String abilityName = ability.getAsJsonObject()
                         .get("ability").getAsJsonObject()
                         .get("name").getAsString();
-                abilities.append(abilityName).append(", ");
+                abilities.append(StringUtils.capitalize(abilityName)).append(", ");
             });
             abilitiesLabel.setText(!abilities.isEmpty()
                     ? abilities.substring(0, abilities.length() - 2)
                     : "None");
 
-            String imageUrl = data.getAsJsonObject("sprites")
-                    .getAsJsonObject("other")
-                    .getAsJsonObject("official-artwork")
-                    .get("front_default")
-                    .getAsString();
+            heightLabel.setText(data.get("height").getAsString());
+            weightLabel.setText(data.get("weight").getAsString());
+
+            String imageUrl = getPokemonImage(data);
 
             pokemonImageView.setImage(new Image(imageUrl));
 
         } catch (Exception e) {
             pokemonNameLabel.setText("Error loading data");
-            abilitiesLabel.setText("-");
             pokemonImageView.setImage(null);
+            heightLabel.setText("Error loading data");
+            weightLabel.setText("Error loading data");
             e.printStackTrace();
         }
     }
@@ -222,9 +234,23 @@ public class PokeController {
             for (int i = fromIndex; i < toIndex && i < pokemonArray.size(); i++) {
                 JsonObject pokemonObj = pokemonArray.get(i).getAsJsonObject().getAsJsonObject("pokemon");
                 String name = pokemonObj.get("name").getAsString();
-                String imageUrl = getPokemonImage(name);
+                JsonObject jsonObject = service.fetchPokemonData(name);
 
-                allPokemon.add(new PokemonDto(name, imageUrl));
+                StringBuilder abilities = new StringBuilder();
+                jsonObject.getAsJsonArray("abilities").forEach(ability -> {
+                    String abilityName = ability.getAsJsonObject()
+                            .get("ability").getAsJsonObject()
+                            .get("name").getAsString();
+                    abilities.append(StringUtils.capitalize(abilityName)).append(", ");
+                });
+
+                String imageUrl = getPokemonImage(jsonObject);
+
+                String s = !abilities.isEmpty()
+                        ? abilities.substring(0, abilities.length() - 2)
+                        : "None";
+
+                allPokemon.add(new PokemonDto(StringUtils.capitalize(name), s, imageUrl));
             }
 
             pokemonListView.setItems(allPokemon);

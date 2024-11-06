@@ -10,6 +10,7 @@ module com.acme.missao4 {
     requires java.net.http;
     requires com.google.gson;
     requires javafx.graphics;
+    requires org.apache.commons.lang3;
 
     opens com.acme.missao4 to javafx.fxml;
     exports com.acme.missao4;
