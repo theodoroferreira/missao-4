@@ -4,12 +4,51 @@
     -fx-background-position: center;
 }
 
-.list-view {
-    -fx-padding: 10px; /* Inner padding for ListView content */
-    -fx-background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
-    -fx-border-color: #3B4CCA;
+.text-field {
+    -fx-background-color: #FFCB05; /* Pikachu yellow */
+    -fx-text-fill: #3B4CCA; /* Deep blue text */
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8px;
+    -fx-border-color: #3B4CCA; /* Deep blue border */
     -fx-border-width: 2px;
     -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+/* Focused State */
+.text-field:focused {
+    -fx-background-color: #FFD733; /* Slightly lighter yellow when focused */
+    -fx-border-color: #FF5959; /* Red border when focused */
+    -fx-effect: dropshadow(one-pass-box, rgba(255, 89, 89, 0.6), 5, 0, 0, 1);
+}
+
+/* Placeholder (Prompt Text) Styling */
+.text-field .text {
+    -fx-fill: #AAAAAA; /* Gray for prompt text */
+    -fx-opacity: 0.8;
+}
+
+/* Optional Hover Effect */
+.text-field:hover {
+    -fx-background-color: #FFD733; /* Lighter yellow on hover */
+    -fx-border-color: #3B4CCA;
+}
+
+/* Error Styling (if needed) */
+.text-field.error {
+    -fx-background-color: #FF5959; /* Red background for error state */
+    -fx-border-color: #FF0000; /* Darker red border for error */
+    -fx-text-fill: #FFFFFF; /* White text on error */
+}
+
+.list-view {
+    -fx-padding: 10px;
+    -fx-background-color: rgba(255, 255, 255, 0.8);
+    -fx-background-radius: 15px;
+    -fx-border-color: #3B4CCA;
+    -fx-border-width: 2px;
+    -fx-border-radius: 15px;
 }
 
 .list-cell {
@@ -45,31 +84,43 @@
 }
 
 .button {
-    -fx-background-color: #FFCB05; /* Pikachu yellow */
-    -fx-text-fill: #3B4CCA; /* Deep blue text */
-    -fx-font-size: 16px;
+    -fx-background-color: #ffcb05; /* Pikachu-inspired yellow */
+    -fx-text-fill: #333333; /* Dark text */
+    -fx-font-family: "Verdana"; /* Bold, readable font */
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-padding: 10px 20px;
-    -fx-border-radius: 15px;
-    -fx-background-radius: 15px;
-    -fx-border-color: #3B4CCA; /* Deep blue border */
-    -fx-border-width: 2px;
-    -fx-cursor: hand;
+    -fx-padding: 8 15 8 15; /* Padding for compact look */
+    -fx-background-radius: 15; /* Rounded corners */
+    -fx-border-radius: 15;
+    -fx-border-color: #3b4cca; /* Pokémon-inspired blue border */
+    -fx-border-width: 3px;
 }
 
-/* Hover Effect */
 .button:hover {
-    -fx-background-color: #FFD733; /* Lighter yellow on hover */
+    -fx-background-color: #ffde03; /* Lighter yellow on hover */
+    -fx-cursor: hand; /* Pointer cursor */
 }
 
-/* Pressed Effect */
 .button:pressed {
-    -fx-background-color: #FFCB05; /* Back to original yellow when pressed */
-    -fx-border-color: #FF5959; /* Red border when pressed */
+    -fx-background-color: #ffcb05; /* Original color on press */
+    -fx-border-color: #333333; /* Darker border on press */
 }
 
-/* Optional: Shadow Effect */
-.button {
-    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 10, 0.5, 0, 4);
+/* Style for Text Fields - Pokémon inspired */
+.text-field {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-color: #3b4cca; /* Blue border */
+    -fx-border-width: 2px;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-font-family: "Verdana";
+    -fx-font-size: 13px;
+    -fx-text-fill: #333333; /* Dark text color */
+    -fx-padding: 5 10 5 10; /* Padding for text */
+}
+
+.text-field:focused {
+    -fx-border-color: #ffcb05; /* Yellow border when focused */
+    -fx-background-color: #f0f8ff; /* Light blue background on focus */
 }
 

@@ -56,9 +56,6 @@ public class PokeController {
     @FXML
     private VBox filterScreen;
 
-    @FXML
-    private VBox showPokedex;
-
     private final PokeService service = new PokeService();
 
     private final ObservableList<PokemonDto> allPokemon = FXCollections.observableArrayList();
@@ -70,14 +67,12 @@ public class PokeController {
     @FXML
     private void showHomeScreen() {
         homeScreen.setVisible(true);
-        showPokedex.setVisible(false);
         searchScreen.setVisible(false);
         filterScreen.setVisible(false);
     }
 
     @FXML
     private void showSearchScreen() {
-        showPokedex.setVisible(true);
         homeScreen.setVisible(false);
         searchScreen.setVisible(true);
         filterScreen.setVisible(false);
@@ -173,6 +168,7 @@ public class PokeController {
     }
 
     private String getPokemonImage(String name) throws IOException, InterruptedException {
+
         JsonObject data = service.fetchPokemonData(name);
         return data.getAsJsonObject("sprites")
                 .getAsJsonObject("other")
@@ -182,6 +178,7 @@ public class PokeController {
     }
 
     public void loadPokemon(String name) {
+
         try {
             JsonObject data = service.fetchPokemonData(name);
             pokemonNameLabel.setText(data.get("name").getAsString());
@@ -242,8 +239,7 @@ public class PokeController {
             loadPokemonByType(selectedType, currentPage);
         }
 
-        // Enable or disable navigation buttons
         previousButton.setDisable(currentPage == 0);
-        nextButton.setDisable((currentPage + 1) * pageSize >= 200); // `totalPokemonCount` is the size of `pokemonArray`
+        nextButton.setDisable((currentPage + 1) * pageSize >= 200);
     }
 }

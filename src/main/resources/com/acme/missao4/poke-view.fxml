@@ -11,26 +11,8 @@
     <VBox fx:id="homeScreen" alignment="CENTER" spacing="20">
         <ImageView fx:id="logoImageView" fitWidth="300" fitHeight="300" preserveRatio="true"/>
         <Label text="Welcome to the Pokémon Finder!" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
-        <Button text="Go to Pokédex" onAction="#showPokedex"/>
         <Button text="Go to Search" onAction="#showSearchScreen"/>
         <Button text="Go to Filter" onAction="#showFilterScreen"/>
-    </VBox>
-
-    <!-- Pokédex -->
-    <VBox fx:id="showPokedex" alignment="CENTER" spacing="10" visible="false">
-
-        <TextField fx:id="pokemonInput" promptText="Enter Pokémon name" maxWidth="200"/>
-        <Button text="Load Pokémon" onAction="#onLoadPokemon"/>
-
-        <Label text="Pokémon Name:"/>
-        <Label fx:id="pokemonNameLabel" text="-"/>
-
-        <Label text="Abilities:"/>
-        <Label fx:id="abilitiesLabel" text="-"/>
-
-        <ImageView fx:id="pokemonImageView" fitWidth="100" fitHeight="100" preserveRatio="true"/>
-
-        <Button text="Back to Home" onAction="#showHomeScreen"/>
     </VBox>
 
     <!-- Search Screen -->
