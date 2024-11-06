@@ -56,6 +56,9 @@ public class PokeController {
     @FXML
     private VBox filterScreen;
 
+    @FXML
+    private VBox showPokedex;
+
     private final PokeService service = new PokeService();
 
     private final ObservableList<PokemonDto> allPokemon = FXCollections.observableArrayList();
@@ -67,12 +70,14 @@ public class PokeController {
     @FXML
     private void showHomeScreen() {
         homeScreen.setVisible(true);
+        showPokedex.setVisible(false);
         searchScreen.setVisible(false);
         filterScreen.setVisible(false);
     }
 
     @FXML
     private void showSearchScreen() {
+        showPokedex.setVisible(true);
         homeScreen.setVisible(false);
         searchScreen.setVisible(true);
         filterScreen.setVisible(false);
